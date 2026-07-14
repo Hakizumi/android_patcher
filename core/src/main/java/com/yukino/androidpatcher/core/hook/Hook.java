@@ -2,6 +2,7 @@ package com.yukino.androidpatcher.core.hook;
 
 import androidx.annotation.NonNull;
 
+import com.yukino.androidpatcher.core.HookRegistry;
 import com.yukino.androidpatcher.core.model.VersionInfo;
 import com.yukino.androidpatcher.core.strategy.HookStrategy;
 
@@ -11,7 +12,7 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 /**
  * The abstract hook class.
  * Each hook should inherit this class,
- * and be managed centrally by the {@code hook registry}.
+ * and be managed centrally by the {@link HookRegistry}.
  *
  * @param <T> Accept profile POJO class,produce by {@link #strategy}.
  */

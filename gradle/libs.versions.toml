@@ -1,20 +1,29 @@
 [versions]
+# Android
 agp = "9.2.1"
-coreKtx = "1.10.1"
-junit = "4.13.2"
-junitVersion = "1.1.5"
-espressoCore = "3.5.1"
+core-ktx = "1.10.1"
+android-junit = "1.1.5"
+espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.10.0"
 
+junit = "4.13.2"
+
+# Xposed
+xposed-api = "82"
+
 [libraries]
-androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+# Android
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "android-junit" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+
+# Xposed
+xposed-api = { group = "de.robv.android.xposed", name = "api", version.ref = "xposed-api" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
-

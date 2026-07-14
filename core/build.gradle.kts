@@ -18,6 +18,9 @@ android {
 }
 
 dependencies {
+    // Android
+    implementation(libs.androidx.annotation.jvm)
+
     // JUnit test
     testImplementation(libs.junit)
 

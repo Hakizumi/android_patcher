@@ -32,7 +32,7 @@ public abstract class Hook<T> {
      * Do the wrapping work for internal hooking action: {@link #hook(XC_LoadPackage.LoadPackageParam, VersionInfo, Object)}.
      */
     public void accept(XC_LoadPackage.LoadPackageParam lpparam, @NonNull VersionInfo versionInfo) {
-        T profile = this.strategy.provideProfile(versionInfo.versionName());
+        T profile = this.strategy.provideProfile(versionInfo);
 
         try {
             hook(lpparam,versionInfo,profile);

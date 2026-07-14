@@ -1,5 +1,7 @@
 package com.yukino.androidpatcher.core.strategy;
 
+import com.yukino.androidpatcher.core.model.VersionInfo;
+
 /**
  * The hook strategy decider interface.
  * Responsible for deciding a hooking action's {@code params}
@@ -9,5 +11,5 @@ package com.yukino.androidpatcher.core.strategy;
  */
 @FunctionalInterface
 public interface HookStrategy<T> {
-    T provideProfile(String version);
+    T provideProfile(VersionInfo version);
 }

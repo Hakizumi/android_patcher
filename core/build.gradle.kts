@@ -2,9 +2,19 @@ plugins {
     id("com.android.library")
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+android {
+    namespace = "com.yukino.androidpatcher.core"
+    compileSdk = 37
+
+    defaultConfig {
+        minSdk = 24
+        // No applicationId
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
 }
 
 dependencies {

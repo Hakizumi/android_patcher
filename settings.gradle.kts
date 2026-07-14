@@ -28,3 +28,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "android-patcher"
+include(":core")

@@ -1,4 +1,4 @@
-package com.yukino.androidpatcher.core.condition.dsl.comparator;
+package com.yukino.androidpatcher.core.utils.comparator;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

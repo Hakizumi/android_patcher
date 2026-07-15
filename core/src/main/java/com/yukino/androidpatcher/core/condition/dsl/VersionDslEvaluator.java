@@ -3,7 +3,7 @@ package com.yukino.androidpatcher.core.condition.dsl;
 import androidx.annotation.NonNull;
 
 import com.yukino.androidpatcher.core.condition.annotations.VersionConditional;
-import com.yukino.androidpatcher.core.condition.dsl.comparator.VersionNameComparator;
+import com.yukino.androidpatcher.core.utils.comparator.VersionNameComparator;
 import com.yukino.androidpatcher.core.model.VersionInfo;
 
 import org.jetbrains.annotations.Contract;

@@ -1,6 +1,6 @@
 package com.yukino.androidpatcher.core.condition.annotations;
 
-import com.yukino.androidpatcher.core.condition.dsl.comparator.VersionNameComparator;
+import com.yukino.androidpatcher.core.utils.comparator.VersionNameComparator;
 import com.yukino.androidpatcher.core.model.VersionInfo;
 
 import java.lang.annotation.ElementType;

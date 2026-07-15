@@ -1,5 +1,7 @@
 <div align="center">
 
+![android-patcher-logo](/assets/logo.png)
+
 # Android Patcher
 🧩 **Patches apps,remove unnecessary modules,and keep positive-for-users features.**
 

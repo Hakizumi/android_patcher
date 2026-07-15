@@ -29,3 +29,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "android-patcher"
 include(":core")
+include(":duolingo")

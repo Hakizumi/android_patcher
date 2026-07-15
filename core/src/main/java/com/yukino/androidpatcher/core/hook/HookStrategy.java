@@ -1,4 +1,4 @@
-package com.yukino.androidpatcher.core.strategy;
+package com.yukino.androidpatcher.core.hook;
 
 import com.yukino.androidpatcher.core.model.VersionInfo;
 

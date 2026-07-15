@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 
 import com.yukino.androidpatcher.core.HookRegistry;
 import com.yukino.androidpatcher.core.model.VersionInfo;
-import com.yukino.androidpatcher.core.strategy.HookStrategy;
 
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;

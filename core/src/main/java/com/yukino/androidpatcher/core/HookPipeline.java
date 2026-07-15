@@ -5,6 +5,7 @@ import android.content.Context;
 
 import com.yukino.androidpatcher.core.hook.Hook;
 import com.yukino.androidpatcher.core.model.VersionInfo;
+import com.yukino.androidpatcher.core.utils.Logger;
 import com.yukino.androidpatcher.core.utils.VersionUtils;
 
 import de.robv.android.xposed.XC_MethodHook;
@@ -31,6 +32,8 @@ public class HookPipeline {
      * then iterate all hooks and run them in order.
      */
     public void runAllHooks(XC_LoadPackage.LoadPackageParam lpparam) {
+        Logger.info("Start running all hooks");
+
         XposedHelpers.findAndHookMethod(
                 Application.class,
                 "attach",
@@ -44,6 +47,7 @@ public class HookPipeline {
                         VersionInfo versionInfo = VersionUtils.getVersion(context);
 
                         for (Hook<?> hook : registry.getAllHooks()) {
+                            Logger.debug("Running hook " + hook.name());
                             hook.accept(lpparam,versionInfo);
                         }
                     }

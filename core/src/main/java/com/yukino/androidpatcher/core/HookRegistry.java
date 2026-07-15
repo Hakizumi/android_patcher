@@ -1,6 +1,9 @@
 package com.yukino.androidpatcher.core;
 
+import androidx.annotation.NonNull;
+
 import com.yukino.androidpatcher.core.hook.Hook;
+import com.yukino.androidpatcher.core.utils.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,7 +23,8 @@ public class HookRegistry {
     }
 
     /** Add a new hook */
-    public void add(Hook<?> hook) {
+    public void add(@NonNull Hook<?> hook) {
+        Logger.debug("Registered hook " + hook.name());
         this.hooks.add(hook);
     }
 

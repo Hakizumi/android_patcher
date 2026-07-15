@@ -3,7 +3,12 @@ package com.yukino.androidpatcher.core.hook;
 import androidx.annotation.NonNull;
 
 import com.yukino.androidpatcher.core.HookRegistry;
+import com.yukino.androidpatcher.core.condition.CompositeConditionStrategy;
+import com.yukino.androidpatcher.core.condition.ConditionStrategy;
+import com.yukino.androidpatcher.core.condition.VersionConditionalStrategy;
 import com.yukino.androidpatcher.core.model.VersionInfo;
+
+import java.util.List;
 
 import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
@@ -27,11 +32,29 @@ public abstract class Hook<T> {
         return getClass().getSimpleName();
     }
 
+    /** Get the {@link ConditionStrategy} to decide should hook */
+    protected ConditionStrategy getConditionStrategies() {
+        return new CompositeConditionStrategy(this.defaultConditionStrategies());
+    }
+
+    /** Default/Builtin {@link ConditionStrategy}s */
+    protected final @NonNull List<ConditionStrategy> defaultConditionStrategies() {
+        return List.of(new VersionConditionalStrategy());
+    }
+
     /**
      * Hook public entrypoint method.
      * Do the wrapping work for internal hooking action: {@link #hook(XC_LoadPackage.LoadPackageParam, VersionInfo, Object)}.
      */
+    @SuppressWarnings("unchecked")
     public void accept(XC_LoadPackage.LoadPackageParam lpparam, @NonNull VersionInfo versionInfo) {
+        // Check should hook
+        if (getConditionStrategies().shouldHook(
+                (Class<? extends Hook<?>>) getClass(),
+                lpparam,
+                versionInfo
+        )) return;
+
         T profile = this.strategy.provideProfile(versionInfo);
 
         try {

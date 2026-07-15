@@ -6,7 +6,7 @@
 <p align="center">
   <a href="#-project-description">Project Description</a> •
   <a href="#-quick-start">Quick Start</a> •
-  <a href="#-supported-applications">Supported Applications</a> •
+  <a href="#-supported-applications">Supported Applications</a>
 </p>
 
 </div>

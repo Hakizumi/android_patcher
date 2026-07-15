@@ -7,6 +7,7 @@ import com.yukino.androidpatcher.core.condition.CompositeConditionStrategy;
 import com.yukino.androidpatcher.core.condition.ConditionStrategy;
 import com.yukino.androidpatcher.core.condition.VersionConditionalStrategy;
 import com.yukino.androidpatcher.core.model.VersionInfo;
+import com.yukino.androidpatcher.core.utils.Logger;
 
 import java.util.List;
 
@@ -53,17 +54,20 @@ public abstract class Hook<T> {
                 (Class<? extends Hook<?>>) getClass(),
                 lpparam,
                 versionInfo
-        )) return;
+        )) {
+            Logger.debug("Skip running hook " + name() + " due to conditions");
+        }
 
         T profile = this.strategy.provideProfile(versionInfo);
         if (profile == null) {
+            Logger.info("Hook " + name() + " did not provide a legal profile,skipped");
             return;
         }
 
         try {
             hook(lpparam,versionInfo,profile);
         } catch (Exception e) {
-            XposedBridge.log("Hook " + this.name() + " failed:" + e.getMessage());
+            Logger.error("Hook " + this.name() + " failed:" + e.getMessage());
         }
     }
 

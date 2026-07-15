@@ -3,6 +3,7 @@ package com.yukino.androidpatcher.core.condition.dsl;
 import androidx.annotation.NonNull;
 
 import com.yukino.androidpatcher.core.condition.annotations.VersionConditional;
+import com.yukino.androidpatcher.core.utils.Logger;
 import com.yukino.androidpatcher.core.utils.comparator.VersionNameComparator;
 import com.yukino.androidpatcher.core.model.VersionInfo;
 
@@ -62,7 +63,8 @@ public class VersionDslEvaluator {
             return compare(left, op, right, versionInfo);
         }
 
-        throw new IllegalArgumentException("invalid condition: " + condition);
+        Logger.warn("Invalid version-dsl-expression condition: " + condition);
+        return false;
     }
 
     /** Compute one inequality  */
@@ -71,7 +73,8 @@ public class VersionDslEvaluator {
         Value rightValue = resolveValue(right, versionInfo);
 
         if (leftValue.type != rightValue.type) {
-            throw new IllegalArgumentException("Type mismatch: " + left + " " + operator + " " + right);
+            Logger.warn("Type mismatch in version-dsl-expression condition: " + left + " " + operator + " " + right);
+            return false;
         }
 
         int compare;
@@ -88,7 +91,10 @@ public class VersionDslEvaluator {
             case "<=" -> compare <= 0;
             case "=" -> compare == 0;
             case "!=" -> compare != 0;
-            default -> throw new IllegalArgumentException("Unsupported operator: " + operator);
+            default -> {
+                Logger.warn("Unsupported operator in version-dsl-expression: " + operator);
+                yield false;
+            }
         };
     }
 

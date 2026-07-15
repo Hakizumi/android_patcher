@@ -12,30 +12,21 @@ import java.util.Comparator;
 import java.util.List;
 
 /**
- * The {@link VersionInfo} comparator implementation.
+ * The {@link VersionInfo#versionName()} comparator implementation.
  */
-public class VersionNameComparator implements Comparator<VersionInfo> {
+public class VersionNameComparator implements Comparator<String> {
     /**
      * Compare 2 versions.
      * <p>
      * Compare logic:
-     * <li> Compare {@link VersionInfo#versionCode()} first.
-     * <li> If {@link VersionInfo#versionCode()} are the same,compare the {@code version name numbers}.
+     * <li> Compare the {@code version name numbers} first.
      * <li> If the version name numbers are the same,compare the {@code version name suffix}.
      */
     @Override
-    public int compare(@NonNull VersionInfo left, @NonNull VersionInfo right) {
-        // Compare version code first
-        if (left.versionCode() != right.versionCode()) {
-           long compare = left.versionCode() - right.versionCode();
-
-           if (compare > Integer.MAX_VALUE) return Integer.MAX_VALUE;
-           return (int) compare;
-        }
-
+    public int compare(@NonNull String left, @NonNull String right) {
         // Version codes are the same,compare version name
-        List<Integer> leftNumbers = getNumbers(left.versionName());
-        List<Integer> rightNumbers = getNumbers(right.versionName());
+        List<Integer> leftNumbers = getNumbers(left);
+        List<Integer> rightNumbers = getNumbers(right);
 
         int max = Math.max(leftNumbers.size(), rightNumbers.size());
 
@@ -49,8 +40,8 @@ public class VersionNameComparator implements Comparator<VersionInfo> {
         }
 
         // The numbers are the same, compare the priority of the suffix
-        String leftSuffix = getSuffix(left.versionName());
-        String rightSuffix = getSuffix(right.versionName());
+        String leftSuffix = getSuffix(left);
+        String rightSuffix = getSuffix(right);
 
         return Integer.compare(suffixWeight(leftSuffix), suffixWeight(rightSuffix));
     }

@@ -1,4 +1,4 @@
-package com.yukino.androidpatcher.core.condition.dsl;
+package com.yukino.androidpatcher.core.condition.dsl.comparator;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * The {@link VersionInfo} comparator implementation.
  */
-public class VersionComparator implements Comparator<VersionInfo> {
+public class VersionNameComparator implements Comparator<VersionInfo> {
     /**
      * Compare 2 versions.
      * <p>

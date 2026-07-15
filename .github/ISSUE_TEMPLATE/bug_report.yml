@@ -6,8 +6,16 @@ body:
   - type: input
     id: version
     attributes:
-      label: Software name and version
+      label: Android patcher software name and version
       placeholder: Like duolingo-v1.2.3
+    validations:
+      required: true
+
+  - type: input
+    id: target-version
+    attributes:
+      label: Target software version
+      placeholder: Like v5.6.7
     validations:
       required: true
 

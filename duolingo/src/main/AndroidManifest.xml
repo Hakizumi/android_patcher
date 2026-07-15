@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+    <application
+            android:label="@string/app_name"
+            android:supportsRtl="true">
+        <!-- Xposed module information -->
+        <meta-data
+                android:name="xposedmodule"
+                android:value="true" />
+        <meta-data
+                android:name="xposeddescription"
+                android:value="AndroidPatcher.Duolingo\nPlease see: https://github.com/Hakizumi/androidpatcher" />
+        <meta-data
+                android:name="xposedminversion"
+                android:value="82" />
+    </application>
+</manifest>

@@ -59,5 +59,5 @@ Also,users should follow the [THIRD-PARTY NOTICE](NOTICE),
 We permit,this project is **ONLY** for studying,
 and we will **NEVER** provide **ANY** commerical service.
 
-If your organization's policies do not permit the use of MIT-licensed software, or if you wish to avoid the open-source obligations of **MIT License**, 
+If your organization's policies do not permit the use of MIT-licensed software, or if you wish to avoid the obligations of **MIT License**, 
 please contact us at: `hakizumi@outlook.com`

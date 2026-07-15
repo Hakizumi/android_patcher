@@ -44,4 +44,7 @@ dependencies {
 
     // Xposed Api
     compileOnly(libs.xposed.api)
+
+    // AndroidPatcher core module
+    implementation(project(":core"))
 }

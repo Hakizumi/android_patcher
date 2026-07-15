@@ -49,13 +49,16 @@ public abstract class Hook<T> {
     @SuppressWarnings("unchecked")
     public void accept(XC_LoadPackage.LoadPackageParam lpparam, @NonNull VersionInfo versionInfo) {
         // Check should hook
-        if (getConditionStrategies().shouldHook(
+        if (!getConditionStrategies().shouldHook(
                 (Class<? extends Hook<?>>) getClass(),
                 lpparam,
                 versionInfo
         )) return;
 
         T profile = this.strategy.provideProfile(versionInfo);
+        if (profile == null) {
+            return;
+        }
 
         try {
             hook(lpparam,versionInfo,profile);

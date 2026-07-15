@@ -6,6 +6,7 @@ import com.yukino.androidpatcher.core.condition.annotations.VersionConditional;
 import com.yukino.androidpatcher.core.condition.dsl.VersionDslEvaluator;
 import com.yukino.androidpatcher.core.hook.Hook;
 import com.yukino.androidpatcher.core.model.VersionInfo;
+import com.yukino.androidpatcher.core.utils.Logger;
 
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
@@ -31,6 +32,8 @@ public class VersionConditionalStrategy implements ConditionStrategy {
         VersionConditional annotation = hookClass.getAnnotation(VersionConditional.class);
 
         if (annotation == null) return true;
+
+        Logger.debug("Evaluating version-dsl-expression: " + annotation.value() + " from " + hookClass.getSimpleName());
 
         return VersionDslEvaluator.evaluate(annotation.value(),versionInfo);
     }

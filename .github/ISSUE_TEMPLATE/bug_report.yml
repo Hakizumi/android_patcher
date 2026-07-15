@@ -3,10 +3,19 @@ description: Submit a bug to help us improve
 title: "[Bug]: "
 labels: ["bug"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to fill out this bug report!
+        If possible, 
+        please send the bug-affected patching software (not the AndroidPatcher patch pack)
+        to us (hakizumi@outlook.com).
+        This allows us to fix the bug faster and easier.
+
   - type: input
     id: version
     attributes:
-      label: Android patcher software name and version
+      label: AndroidPatcher software name and version
       placeholder: Like duolingo-v1.2.3
     validations:
       required: true

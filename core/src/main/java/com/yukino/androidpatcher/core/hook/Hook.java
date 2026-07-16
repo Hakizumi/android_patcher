@@ -11,7 +11,6 @@ import com.yukino.androidpatcher.core.utils.Logger;
 
 import java.util.List;
 
-import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.callbacks.XC_LoadPackage;
 
 /**
@@ -66,7 +65,7 @@ public abstract class Hook<T> {
 
         try {
             hook(lpparam,versionInfo,profile);
-        } catch (Exception e) {
+        } catch (Throwable e) {
             Logger.error("Hook " + this.name() + " failed:" + e.getMessage());
         }
     }
@@ -77,5 +76,5 @@ public abstract class Hook<T> {
      * <p>
      * Can customize the hooking action by {@code versionInfo} and hooking profile.
      */
-    protected abstract void hook(XC_LoadPackage.LoadPackageParam lpparam, VersionInfo versionInfo, T profile);
+    protected abstract void hook(XC_LoadPackage.LoadPackageParam lpparam, VersionInfo versionInfo, T profile) throws Throwable;
 }

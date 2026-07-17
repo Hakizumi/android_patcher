@@ -37,5 +37,5 @@ public abstract class NoStrategyHook extends Hook<Object> {
     protected abstract void hook(
             XC_LoadPackage.LoadPackageParam lpparam,
             VersionInfo versionInfo
-    );
+    ) throws Throwable;
 }

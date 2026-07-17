@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import com.yukino.androidpatcher.core.hook.Hook;
 import com.yukino.androidpatcher.core.model.VersionInfo;
+import com.yukino.androidpatcher.core.utils.Logger;
 import com.yukino.androidpatcher.duolingo.hooks.profile.UserPlusProfile;
 import com.yukino.androidpatcher.duolingo.hooks.strategy.UserPlusStrategy;
 
@@ -49,7 +50,7 @@ public class UserPlusHook extends Hook<UserPlusProfile> {
                                     true
                             );
                         } catch (Throwable t) {
-                            XposedBridge.log("Hook Duolingo user-plus failed: " + t.getMessage());
+                            Logger.error("Hook Duolingo user-plus failed: " + t.getMessage());
                         }
                     }
                 }
